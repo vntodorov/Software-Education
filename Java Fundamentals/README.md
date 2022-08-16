@@ -20,10 +20,10 @@ The course **"Programming Fundamentals with Java"** ends with a basic web projec
 - Git and GitHub
 - Data Types and Variables 
 - HTTP Basics
-- Arrays.Arrays_exercises
+- Arrays
 - HTML & CSS Basics
 - Software Development Concepts
-- List
+- Lists
 - Objects and Classes
 - Bitwise Operations
 - Text processing
