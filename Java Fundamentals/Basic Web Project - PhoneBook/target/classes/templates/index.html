@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Venci's PhoneBook</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link th:href="@{css/bootstrap.css}" rel="stylesheet"/>
+    <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/16/16106.png">
+</head>
+
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" th:href="@{/}">Venci's PhoneBook</a>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <legend>All Contacts Information</legend>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Second Name</th>
+            <th scope="col">Town</th>
+            <th scope="col">Country</th>
+            <th scope="col">Phone Number</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="contact : ${contacts}">
+            <td th:text="${contact.firstName}"></td>
+            <td th:text="${contact.secondName}"></td>
+            <td th:text="${contact.town}"></td>
+            <td th:text="${contact.country}"></td>
+            <td th:text="${contact.phoneNumber}"></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form class="form-horizontal" th:method="POST">
+        <fieldset>
+            <legend>Add New Contact</legend>
+            <div class="form-group">
+                <label for="firstName" class="col-lg-2 control-label">First Name</label>
+                <div class="col-lg-10">
+                    <input type="text" autofocus="autofocus" name="firstName" title="First Name" class="form-control"
+                           id="firstName"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="secondName" class="col-lg-2 control-label">Second Name</label>
+                <div class="col-lg-10">
+                    <input type="text" autofocus="autofocus" name="secondName" title="Second Name" class="form-control"
+                           id="secondName"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="town" class="col-lg-2 control-label">Town</label>
+                <div class="col-lg-10">
+                    <input type="text" autofocus="autofocus" name="town" title="Town" class="form-control"
+                           id="town"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="country" class="col-lg-2 control-label">Country</label>
+                <div class="col-lg-10">
+                    <input type="text" autofocus="autofocus" name="country" title="Country" class="form-control"
+                           id="country"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phoneNumber" class="col-lg-2 control-label">Phone Number</label>
+                <div class="col-lg-10">
+                    <input type="text" autofocus="autofocus" name="phoneNumber" title="Phone Number" class="form-control"
+                           id="phoneNumber"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                    <button type="submit" class="btn btn-primary">Add Contact</button>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+
+    <hr/>
+
+    <footer>
+        <p>&copy; Venci's PhoneBook</p>
+    </footer>
+</div>
+
+</body>
+</html>
