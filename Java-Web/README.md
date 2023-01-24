@@ -1,1 +1,1 @@
-# <p align="center"> MobiLeLe - a university project to practice all things Spring! </p>
+# <p align="center"> University projects to practice all things Spring! </p>
