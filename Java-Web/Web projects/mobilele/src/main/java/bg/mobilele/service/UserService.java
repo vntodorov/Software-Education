@@ -1,6 +1,7 @@
 package bg.mobilele.service;
 
 import bg.mobilele.model.dto.UserLoginDTO;
+import bg.mobilele.model.dto.UserRegisterDTO;
 import bg.mobilele.model.entity.UserEntity;
 import bg.mobilele.repository.UserRepository;
 import bg.mobilele.user.CurrentUser;
@@ -29,7 +30,20 @@ public class UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
+    public void registerAndLogin(UserRegisterDTO userRegisterDTO) {
 
+        UserEntity newUser =
+                new UserEntity()
+                        .setActive(true)
+                        .setEmail(userRegisterDTO.getEmail())
+                        .setFirstName(userRegisterDTO.getFirstName())
+                        .setLastName(userRegisterDTO.getLastName())
+                        .setPassword(passwordEncoder.encode(userRegisterDTO.getPassword()));
+
+        userRepository.save(newUser);
+
+        login(newUser);
+    }
 
     public boolean login(UserLoginDTO loginDTO) {
         Optional<UserEntity> userOpt = userRepository.findByEmail(loginDTO.getUsername());
