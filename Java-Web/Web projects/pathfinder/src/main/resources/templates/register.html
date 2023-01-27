@@ -25,6 +25,7 @@
                     <div class="col-auto">
                         <input name="username"
                                th:field="*{username}"
+                               th:errorclass="is-invalid"
                                required minlength="5" maxlength="20"
                                type="text"
                                id="inputUsername"
@@ -47,6 +48,7 @@
                     <div class="col-auto">
                         <input name="fullName"
                                th:field="*{fullName}"
+                               th:errorclass="is-invalid"
                                required minlength="5" maxlength="20"
                                type="text"
                                id="inputFullName"
