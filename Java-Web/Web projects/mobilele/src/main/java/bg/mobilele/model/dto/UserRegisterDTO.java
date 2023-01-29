@@ -1,13 +1,15 @@
 package bg.mobilele.model.dto;
 
+import bg.mobilele.model.validation.UniqueUserEmail;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
 public class UserRegisterDTO {
 
-    @NotEmpty
-    @Email
+    @NotEmpty(message = "User email should be provided.")
+    @Email(message = "User email should be valid.")
+    @UniqueUserEmail(message = "This email has been already used.")
     private String email;
 
     @NotEmpty
