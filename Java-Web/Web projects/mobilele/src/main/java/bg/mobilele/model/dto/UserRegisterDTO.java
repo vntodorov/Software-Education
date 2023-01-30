@@ -1,14 +1,20 @@
 package bg.mobilele.model.dto;
 
+import bg.mobilele.model.validation.FieldMatch;
 import bg.mobilele.model.validation.UniqueUserEmail;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
+@FieldMatch(
+        first = "password",
+        second = "confirmPassword",
+        message = " Passwords do not match!"
+)
 public class UserRegisterDTO {
 
-    @NotEmpty(message = "User email should be provided.")
-    @Email(message = "User email should be valid.")
+    @NotEmpty(message = "Enter your email.")
+    @Email(message = "Invalid email.")
     @UniqueUserEmail(message = "This email has been already used.")
     private String email;
 
