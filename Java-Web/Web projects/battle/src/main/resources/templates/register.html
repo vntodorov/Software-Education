@@ -1,12 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Battleships Application</title>
-    <link rel="stylesheet" href="/css/reset-css.css"/>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/css/style.css"/>
+    <th:block th:replace="~{fragments/head}"></th:block>
 </head>
 <body class="body-main">
 <header>
@@ -108,8 +104,7 @@
         </div>
     </div>
 </main>
-<footer class="container text-white">
-    <p>&copy;SoftUni Spring Team 2021. All rights reserved.</p>
-</footer>
+<th:block th:replace="~{fragments/footer}"></th:block>
+
 </body>
 </html>

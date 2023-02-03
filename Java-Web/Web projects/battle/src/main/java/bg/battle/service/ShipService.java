@@ -2,6 +2,7 @@ package bg.battle.service;
 
 import bg.battle.model.Category;
 import bg.battle.model.DTOs.CreateShipDTO;
+import bg.battle.model.DTOs.ShipDTO;
 import bg.battle.model.Ship;
 import bg.battle.model.User;
 import bg.battle.model.enums.CategoryEnum;
@@ -12,6 +13,7 @@ import bg.battle.session.CurrentUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -61,4 +63,26 @@ public class ShipService {
         return true;
 
     }
+
+    public List<ShipDTO> getOwnedShips(long loggedUserId) {
+        return this.shipRepository.findByUserId(loggedUserId).get()
+                .stream()
+                .map(ShipDTO::new)
+                .toList();
+
+
+    }
+
+    public List<ShipDTO> getEnemyShips(long loggedUserId) {
+        return this.shipRepository.findByUserIdNot(loggedUserId).get()
+                .stream()
+                .map(ShipDTO::new)
+                .toList();
+    }
+
+    public List<ShipDTO> getSortedShips() {
+        return this.shipRepository.findByOrderByHealthAscNameDescPowerAsc().get()
+                .stream()
+                .map(ShipDTO::new)
+                .toList();    }
 }

@@ -26,7 +26,7 @@ public class CreateShipDTO {
     private LocalDate created;
 
     @Positive
-    private int category;
+    private int category = -1;
 
     public String getName() {
         return name;
