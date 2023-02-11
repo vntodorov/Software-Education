@@ -2,10 +2,9 @@ package bg.mobilele.model.entity;
 
 import bg.mobilele.model.entity.enums.EngineEnum;
 import bg.mobilele.model.entity.enums.TransmissionEnum;
-import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.UUID;
 

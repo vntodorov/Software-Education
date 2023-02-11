@@ -1,9 +1,10 @@
 package bg.mobilele.model.validation;
 
 import bg.mobilele.repository.UserRepository;
-import jakarta.validation.ConstraintValidator;
-import jakarta.validation.ConstraintValidatorContext;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 
 public class UniqueUserEmailValidator implements ConstraintValidator<UniqueUserEmail, String> {
 

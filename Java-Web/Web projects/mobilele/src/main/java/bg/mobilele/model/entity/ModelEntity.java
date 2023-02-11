@@ -1,7 +1,7 @@
 package bg.mobilele.model.entity;
 
 import bg.mobilele.model.entity.enums.CategoryEnum;
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "models")

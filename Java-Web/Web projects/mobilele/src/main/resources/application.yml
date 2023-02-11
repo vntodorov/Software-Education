@@ -1,4 +1,5 @@
 spring:
+
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/mobilele?createDatabaseIfNotExist=true
@@ -8,7 +9,7 @@ spring:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
       ddl-auto: update
-  defer-datasource-initialization: true
+    defer-datasource-initialization: true
 #  sql:
 #    init:
 #      mode: always
