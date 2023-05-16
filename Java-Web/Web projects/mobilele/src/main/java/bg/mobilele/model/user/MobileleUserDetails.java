@@ -7,7 +7,6 @@ import java.util.Collection;
 
 public class MobileleUserDetails implements UserDetails {
 
-
     private final String password;
     private final String username;
     private final String firstName;
