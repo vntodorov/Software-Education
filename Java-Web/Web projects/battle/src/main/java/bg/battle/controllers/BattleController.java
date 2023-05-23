@@ -1,6 +1,7 @@
 package bg.battle.controllers;
 
 import bg.battle.model.DTOs.StartBattleDTO;
+import bg.battle.service.AuthService;
 import bg.battle.service.BattleService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,10 +14,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 public class BattleController {
 
     private final BattleService battleService;
+    private final AuthService authService;
 
     @Autowired
-    public BattleController(BattleService battleService) {
+    public BattleController(BattleService battleService, AuthService authService) {
         this.battleService = battleService;
+        this.authService = authService;
     }
 
     @PostMapping("/battle")
@@ -24,6 +27,9 @@ public class BattleController {
                          BindingResult bindingResult,
                          RedirectAttributes redirectAttributes) {
 
+        if (!authService.isLoggedIn()) {
+            return "redirect:/";
+        }
 
         if (bindingResult.hasErrors()) {
 

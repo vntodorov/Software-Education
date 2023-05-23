@@ -1,7 +1,9 @@
 package bg.battle.controllers;
 
 import bg.battle.model.DTOs.CreateShipDTO;
+import bg.battle.service.AuthService;
 import bg.battle.service.ShipService;
+import bg.battle.session.CurrentUser;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,9 +18,12 @@ public class ShipController {
 
     private final ShipService shipService;
 
+    private final AuthService authService;
+
     @Autowired
-    public ShipController(ShipService shipService) {
+    public ShipController(ShipService shipService, AuthService authService) {
         this.shipService = shipService;
+        this.authService = authService;
     }
 
     @ModelAttribute("shipDTO")
@@ -28,6 +33,10 @@ public class ShipController {
 
     @GetMapping("/ships/add")
     public String addShip(){
+        if (!authService.isLoggedIn()) {
+            return "redirect:/";
+        }
+
         return "ship-add";
     }
 
