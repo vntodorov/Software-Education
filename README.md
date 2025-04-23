@@ -1,7 +1,9 @@
 # <p align="center"> My whole education in the Software University! <p>
 <a href="https://softuni.bg/trainings/courses" rel="Courses"> </a> 
 
-All things Java. It's a collection of projects and stuff I’ve built to practice backend development, Java concepts, frameworks, and pretty much everything in between. MIT license!
+All things Java. It's a collection of projects and stuff I’ve built to practice backend development, Java concepts, frameworks, and pretty much everything in between.
+
+<i>MIT license!</i>
 
 <p align="center">
   <a href="https://softuni.bg/">
